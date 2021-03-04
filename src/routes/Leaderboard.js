@@ -21,7 +21,7 @@ class Leaderboard extends React.Component{
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/students-records/view-all/", {method:'GET'})
+    fetch("https://studentleaderboard-api.herokuapp.com/students-records/view-all/", {method:'GET'})
       .then(res => res.json())
       .then(
         (result) => {
@@ -67,7 +67,7 @@ class Leaderboard extends React.Component{
     var field = document.getElementById('sortby').value;
     var order = document.getElementById('order').value; // Asc or Desc
     console.log('The link was clicked.', field, order);
-    fetch(`http://localhost:8000/students-records/view/sortby/${order}${field}`, {method:'GET'})
+    fetch(`https://studentleaderboard-api.herokuapp.com/students-records/view/sortby/${order}${field}`, {method:'GET'})
     .then(res => res.json())
     .then(
       (result) => {
@@ -125,7 +125,7 @@ class Leaderboard extends React.Component{
           </tbody>
           </table>;
     }
-  
+
     return (
       <div>
         <Container>
