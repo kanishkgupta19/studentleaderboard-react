@@ -5,7 +5,7 @@ import { Nav, Navbar, FormControl, Button, Form} from 'react-bootstrap'
 function Sidebar(props){
         return(
             <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar.Brand href="/">StudentLeaderboard</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/leaderboard">Leaderboard</Nav.Link>

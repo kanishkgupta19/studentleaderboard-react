@@ -23,6 +23,9 @@ const App = () => (
       </Switch>
     </Suspense>
   </Router>
+    <br/>
+    <br/>
+    <div style={{width:'100%', color:'white', textAlign:'center', padding:'2rem', backgroundColor:'black'}}>Created by:<br/>KANISHK GUPTA<br/>kanishkgupta19@gmail.com</div>
   </div>
 );
 
