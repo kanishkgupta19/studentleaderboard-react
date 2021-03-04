@@ -30,7 +30,7 @@ class Studentrecord extends React.Component {
 
         //Calculating Percentage
         object['Percentage']=parseFloat((object['Total']/3).toFixed(2));
-            fetch(`https://studentleaderboard-api.herokuapp.com/students-records/create/`, {crossDomain:true, method:'POST',
+            fetch(` https://cors-anywhere.herokuapp.com/https://studentleaderboard-api.herokuapp.com/students-records/create/`, {crossDomain:true, method:'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin' : '*'

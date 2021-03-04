@@ -21,7 +21,7 @@ class Leaderboard extends React.Component{
   }
 
   componentDidMount() {
-    fetch("https://studentleaderboard-api.herokuapp.com/students-records/view-all/", {crossDomain:true, method:'GET'})
+    fetch(" https://cors-anywhere.herokuapp.com/https://studentleaderboard-api.herokuapp.com/students-records/view-all/", {crossDomain:true, method:'GET'})
       .then(res => res.json())
       .then(
         (result) => {
@@ -67,7 +67,7 @@ class Leaderboard extends React.Component{
     var field = document.getElementById('sortby').value;
     var order = document.getElementById('order').value; // Asc or Desc
     console.log('The link was clicked.', field, order);
-    fetch(`https://studentleaderboard-api.herokuapp.com/students-records/view/sortby/${order}${field}`, {crossDomain:true, method:'GET',
+    fetch(` https://cors-anywhere.herokuapp.com/https://studentleaderboard-api.herokuapp.com/students-records/view/sortby/${order}${field}`, {mode: 'no-cors', crossDomain:true, method:'GET',
       headers: {
           'Access-Control-Allow-Origin' : '*'
         },
@@ -103,7 +103,7 @@ class Leaderboard extends React.Component{
       elem=<table id="records-table" className="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>S.No</th>
+                <th>S.No.</th>
                 <th>Roll No.</th>
                 <th>Name</th>
                 <th>Maths Marks</th>
@@ -140,7 +140,7 @@ class Leaderboard extends React.Component{
               <Col>
                 <Form inline>
                     <Form.Label className="my-1 mr-2" htmlFor="sortby">
-                      Sort By
+                      SortBy
                     </Form.Label>
                     <Form.Control defaultValue="Percentage" as="select" className="my-1 mr-sm-2" id="sortby" custom>
                       <option value="Name">Name</option>
