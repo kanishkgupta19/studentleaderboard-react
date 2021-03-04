@@ -21,7 +21,7 @@ class Leaderboard extends React.Component{
   }
 
   componentDidMount() {
-    fetch("https://thingproxy.freeboard.io/fetch/https://studentleaderboard-api.herokuapp.com/students-records/view-all/", {crossDomain:true, method:'GET'})
+    fetch("https://api.allorigins.win/raw?url=https://studentleaderboard-api.herokuapp.com/students-records/view-all/", {method:'GET'})
       .then(res => res.json())
       .then(
         (result) => {
@@ -67,10 +67,7 @@ class Leaderboard extends React.Component{
     var field = document.getElementById('sortby').value;
     var order = document.getElementById('order').value; // Asc or Desc
     console.log('The link was clicked.', field, order);
-    fetch(`https://thingproxy.freeboard.io/fetch/https://studentleaderboard-api.herokuapp.com/students-records/view/sortby/${order}${field}`, {crossDomain:true, method:'GET',
-      headers: {
-          'Access-Control-Allow-Origin' : '*'
-        },
+    fetch(`https://api.allorigins.win/raw?url=https://studentleaderboard-api.herokuapp.com/students-records/view/sortby/${order}${field}`, {method:'GET'
       })
     .then(res => res.json())
     .then(
