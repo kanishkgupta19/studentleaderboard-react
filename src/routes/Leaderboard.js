@@ -67,7 +67,11 @@ class Leaderboard extends React.Component{
     var field = document.getElementById('sortby').value;
     var order = document.getElementById('order').value; // Asc or Desc
     console.log('The link was clicked.', field, order);
-    fetch(`https://studentleaderboard-api.herokuapp.com/students-records/view/sortby/${order}${field}`, {crossDomain:true, method:'GET'})
+    fetch(`https://studentleaderboard-api.herokuapp.com/students-records/view/sortby/${order}${field}`, {crossDomain:true, method:'GET',
+      headers: {
+          'Access-Control-Allow-Origin' : '*'
+        },
+      })
     .then(res => res.json())
     .then(
       (result) => {
