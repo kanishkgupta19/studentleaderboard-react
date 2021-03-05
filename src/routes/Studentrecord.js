@@ -16,6 +16,7 @@ class Studentrecord extends React.Component {
       }
 
       formSubmit(event) {
+        document.getElementById('student-form-btn').innerHTML="Submitting....";
         var form = document.getElementById('student-record-form');
         var formData = new FormData(form);
         var object = {};
@@ -30,19 +31,17 @@ class Studentrecord extends React.Component {
 
         //Calculating Percentage
         object['Percentage']=parseFloat((object['Total']/3).toFixed(2));
-            fetch(`https://secret-ocean-49799.herokuapp.com/https://studentleaderboard-api.herokuapp.com/students-records/create/`, {method:'POST',
-            headers: {
-                'Content-Type': 'application/json',
-              },
-            body:JSON.stringify(object)})
-            .then(res => res.json())
+            fetch(`https://secret-ocean-49799.herokuapp.com/http://indiaxisimmigration.com/test/ajax.php?rollno=${object['RollNo']}&name=${object['Name']}&phy=${object['Physics']}&chem=${object['Chemistry']}&maths=${object['Maths']}&total=${object['Total']}&avg=${object['Percentage']}`,
+              {method:'GET'})
             .then(
             (result) => {
+                console.log(result);
+                document.getElementById('student-form-btn').innerHTML="Add record";
                 alert("Form Submitted Successfully");
             },
             (error) => {
                 console.log(error);
-                alert("Some Error Occurre");
+                alert("Some Error Occurred");
             }
             )
       }
@@ -75,7 +74,7 @@ class Studentrecord extends React.Component {
                             <Col sm={10}><Form.Control type="number" min="0" max="100" name="Chemistry" placeholder="Enter Chemistry marks" required/></Col>
                         </Form.Group>
                         <br/>
-                        <Button variant="primary" size="lg" type="submit">Add Record</Button>
+                        <Button id="student-form-btn" variant="primary" size="lg" type="submit">Add Record</Button>
                     </Form>
                 </Card.Body>
             </Card>
